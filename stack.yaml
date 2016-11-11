@@ -1,1 +1,7 @@
 resolver: lts-7.8
+packages:
+  - .
+  - location:
+      git: git@github.com:haskell/containers.git
+      commit: '1e6bb29'
+    extra-dep: true

@@ -1,13 +1,40 @@
 name: containers-focus
-version: 0.1.0.0
+version: 0.1.0
+synopsis: focus integration for containers
+description: |
+  This package provides <https://hackage.haskell.org/package/focus focus>
+  integration for <https://hackage.haskell.org/package/containers containers>.
+  .
+  The @focus@ combinator is very general, and can be used to re-implement many
+  functions from the existing @containers@ API. It can also provide new
+  functionality.
+  .
+  For example, you may want to delete an element from a @Map@ and return it at
+  the same time, traversing the tree only once:
+  .
+  > import Data.Map.Lazy.Focus
+  >
+  > deleteLookup :: Ord k => k -> Map k a -> (Maybe a, Map k a)
+  > deleteLookup = focus (, Remove)
+author: Mitchell Rosen <mitchellwrosen@gmail.com>
+maintainer: Mitchell Rosen <mitchellwrosen@gmail.com>
+github: mitchellwrosen/containers-focus
+license: BSD3
+license-files: LICENSE, LICENSE-GHC
 
 ghc-options: -Wall
 
 dependencies:
-  - base
+  - base >= 4.6 && < 5
 
 library:
   source-dirs: src
+  dependencies:
+    # FIXME: containers actually requires > 0.5.8.1
+    - containers >= 0.5.8.1 && < 0.6
+    - focus < 0.2
+  other-modules:
+    - PtrEquality
 
 tests:
   spec:
