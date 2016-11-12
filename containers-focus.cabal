@@ -41,6 +41,8 @@ library
     , containers >= 0.5.8.1 && < 0.6
     , focus < 0.2
   exposed-modules:
+      Data.IntMap.Lazy.Focus
+      Data.IntMap.Strict.Focus
       Data.Map.Lazy.Focus
       Data.Map.Strict.Focus
   other-modules:
@@ -58,6 +60,8 @@ test-suite spec
     , containers-focus
     , hspec
   other-modules:
+      Data.IntMap.Lazy.FocusSpec
+      Data.IntMap.Strict.FocusSpec
       Data.Map.Lazy.FocusSpec
       Data.Map.Strict.FocusSpec
   default-language: Haskell2010

@@ -55,14 +55,14 @@ focus f = go
              let !t' = balanceL ky y l' r
              in (z, t')
        where
-        !(z, !l') = go kx l
+        (z, l') = go kx l
 
       GT | r `ptrEq` r' -> (z, t)
          | otherwise ->
              let !t' = balanceR ky y l r'
              in (z, t')
        where
-        !(z, !r') = go kx r
+        (z, r') = go kx r
 
       EQ ->
         case decision of
